@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"net"
 	"os"
 )
@@ -14,7 +13,6 @@ func noError(err error, messages ...string) {
 }
 func logError(err error) {
 	if err != nil {
-		fmt.Printf("Error: %s\n", err)
 	}
 }
 
@@ -28,7 +26,6 @@ func main() {
 
 	reader := bufio.NewReader(os.Stdin)
 	for {
-		fmt.Printf("> ")
 		res, err := reader.ReadString('\n')
 		logError(err)
 		conn.Write([]byte(res))
